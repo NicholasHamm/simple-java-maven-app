@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven_3'
-        // jdk 'JDK21'  // Uncomment if you configured a JDK tool in Jenkins
+        // jdk 'JDK21'
     }
 
     parameters {
@@ -39,14 +39,8 @@ pipeline {
 
     post {
         always {
-            junit allowEmptyResults: true, testResults: '''
-            target/surefire-reports/*.xml,
-            target/failsafe-reports/*.xml
-        '''
-        archiveArtifacts allowEmptyArchive: true,
-    artifacts: 'target/screenshots/**'
-
-
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, target/failsafe-reports/*.xml'
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'target/screenshots/**'
         }
     }
 }
