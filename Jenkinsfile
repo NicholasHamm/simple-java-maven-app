@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    maven 'Maven3'     // must match Manage Jenkins → Tools → Maven installations name
+    maven 'Maven_3'     // must match Manage Jenkins → Tools → Maven installations name
     // jdk 'JDK21'      // optional: only if you configured a JDK tool with this name
   }
 
