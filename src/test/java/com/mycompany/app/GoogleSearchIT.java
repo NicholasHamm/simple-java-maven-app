@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
+import java.io.IOException;
+
 import org.apache.commons.io.FileUtils;
 
 
@@ -15,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class GoogleSearchIT {
 
     @Test
-    void verifyGoogleHomePageLoads() {
+    void verifyGoogleHomePageLoads() throws IOException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
 
@@ -28,7 +30,6 @@ public class GoogleSearchIT {
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot, new File("target/screenshots/failure.png"));
 		
-
         driver.quit();
     }
 }
