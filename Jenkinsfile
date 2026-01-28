@@ -8,10 +8,12 @@ pipeline {
 			}
 		}
 		
-		stage ('Build and Test'){
+		tools { maven 'Maven3' }  // name must match Manage Jenkins → Tools
+		stage('Build and Test') {
 			steps {
-				sh 'mvn clean test package'
+			    bat 'mvn -B clean test'
 			}
 		}
+
 	}
 }
